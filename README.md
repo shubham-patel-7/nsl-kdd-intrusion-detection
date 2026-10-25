@@ -2,6 +2,8 @@
 
 > **Can a model trained on known attacks catch new ones?** A controlled comparison of Logistic Regression, Random Forest, XGBoost and a PyTorch MLP for network intrusion detection, evaluated on the official hold-out set that deliberately contains attack types never seen in training. Includes a Streamlit app that classifies an uploaded CSV of connection records.
 
+**[Live demo](https://nsl-kdd-ids-demo.streamlit.app/)** (free hosting: if the app has been idle it takes about 30 seconds to wake up)
+
 ![App](results/figures/app_screenshot.png)
 
 ## Headline findings
