@@ -1,0 +1,32 @@
+{
+  "preprocessor": "preprocessor.joblib",
+  "tasks": {
+    "binary": {
+      "classes": [
+        "normal",
+        "attack"
+      ],
+      "models": {
+        "Logistic Regression": "binary_logistic_regression.joblib",
+        "Random Forest": "binary_random_forest.joblib",
+        "XGBoost": "binary_xgboost.joblib",
+        "MLP (PyTorch)": "binary_mlp_pytorch.pt"
+      }
+    },
+    "multiclass": {
+      "classes": [
+        "normal",
+        "DoS",
+        "Probe",
+        "R2L",
+        "U2R"
+      ],
+      "models": {
+        "Logistic Regression": "multiclass_logistic_regression.joblib",
+        "Random Forest": "multiclass_random_forest.joblib",
+        "XGBoost": "multiclass_xgboost.joblib",
+        "MLP (PyTorch)": "multiclass_mlp_pytorch.pt"
+      }
+    }
+  }
+}

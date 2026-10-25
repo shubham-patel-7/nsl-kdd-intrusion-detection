@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nsl-kdd-ids"
+version = "1.0.0"
+description = "Network intrusion detection on NSL-KDD: classic ML vs deep learning, with a Streamlit CSV classifier"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26", "pandas>=2.0", "scikit-learn>=1.3", "xgboost>=2.0",
+  "torch>=2.2", "matplotlib>=3.8", "streamlit>=1.35", "joblib>=1.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

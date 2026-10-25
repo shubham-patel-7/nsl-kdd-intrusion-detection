@@ -1,0 +1,124 @@
+{
+  "rows": [
+    {
+      "batch": "1. Mixed traffic (1,000 random records)",
+      "model": "XGBoost",
+      "n": 1000,
+      "attacks_in_batch": 578,
+      "flagged": 421,
+      "flagged_share": 0.421,
+      "mean_confidence": 0.981134295463562,
+      "ms": 137.47209997382015,
+      "detection_rate": 0.7006920415224913,
+      "false_alarm_rate": 0.037914691943127965
+    },
+    {
+      "batch": "1. Mixed traffic (1,000 random records)",
+      "model": "MLP (PyTorch)",
+      "n": 1000,
+      "attacks_in_batch": 578,
+      "flagged": 419,
+      "flagged_share": 0.419,
+      "mean_confidence": 0.9783383011817932,
+      "ms": 92.14470000006258,
+      "detection_rate": 0.6937716262975778,
+      "false_alarm_rate": 0.04265402843601896
+    },
+    {
+      "batch": "2. Known attack types only (500)",
+      "model": "XGBoost",
+      "n": 500,
+      "attacks_in_batch": 500,
+      "flagged": 391,
+      "flagged_share": 0.782,
+      "mean_confidence": 0.9930931329727173,
+      "ms": 27.79359999112785,
+      "detection_rate": 0.782
+    },
+    {
+      "batch": "2. Known attack types only (500)",
+      "model": "MLP (PyTorch)",
+      "n": 500,
+      "attacks_in_batch": 500,
+      "flagged": 407,
+      "flagged_share": 0.814,
+      "mean_confidence": 0.967022180557251,
+      "ms": 26.204800000414252,
+      "detection_rate": 0.814
+    },
+    {
+      "batch": "3. Novel attack types only (500)",
+      "model": "XGBoost",
+      "n": 500,
+      "attacks_in_batch": 500,
+      "flagged": 209,
+      "flagged_share": 0.418,
+      "mean_confidence": 0.9222343564033508,
+      "ms": 22.67320000100881,
+      "detection_rate": 0.418
+    },
+    {
+      "batch": "3. Novel attack types only (500)",
+      "model": "MLP (PyTorch)",
+      "n": 500,
+      "attacks_in_batch": 500,
+      "flagged": 203,
+      "flagged_share": 0.406,
+      "mean_confidence": 0.9711711406707764,
+      "ms": 26.012099930085242,
+      "detection_rate": 0.406
+    }
+  ],
+  "mixed_detection_by_family_xgboost": {
+    "DoS": {
+      "n": 341,
+      "detected": 0.8944281524926686
+    },
+    "Probe": {
+      "n": 104,
+      "detected": 0.7692307692307693
+    },
+    "R2L": {
+      "n": 131,
+      "detected": 0.15267175572519084
+    },
+    "U2R": {
+      "n": 2,
+      "detected": 0.0
+    }
+  },
+  "novel_detection_by_attack_xgboost": {
+    "apache2": {
+      "n": 105,
+      "detected": 0.8476190476190476
+    },
+    "httptunnel": {
+      "n": 15,
+      "detected": 0.0
+    },
+    "mailbomb": {
+      "n": 39,
+      "detected": 0.0
+    },
+    "mscan": {
+      "n": 137,
+      "detected": 0.38686131386861317
+    },
+    "processtable": {
+      "n": 90,
+      "detected": 0.36666666666666664
+    },
+    "saint": {
+      "n": 31,
+      "detected": 1.0
+    },
+    "snmpgetattack": {
+      "n": 19,
+      "detected": 0.0
+    },
+    "snmpguess": {
+      "n": 52,
+      "detected": 0.0
+    }
+  }
+}
