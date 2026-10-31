@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
 from ids import config as C
 from ids.predict import Detector, read_traffic
@@ -22,6 +23,7 @@ from ids.predict import Detector, read_traffic
 st.set_page_config(page_title="Intrusion detection", page_icon="🛡️", layout="wide")
 BLUE, ORANGE, INK2, GRID = "#2a78d6", "#eb6834", "#52514e", "#e6e5e1"
 SAMPLE = ROOT / "sample_data" / "sample_traffic.csv"
+BENCH = ROOT / "app" / "bench.html"
 
 
 @st.cache_resource
@@ -29,9 +31,27 @@ def get_detector():
     return Detector()
 
 
+def bench_tab():
+    """Standalone in-browser page: pick a KDDTest+ record and watch five classifiers label it."""
+    st.caption("Pick a real KDDTest+ connection record and compare five classifiers side by side. "
+               "This page runs in your browser and uses its own models, separate from the Detector tab.")
+    if not BENCH.exists():
+        st.warning("The bench page (app/bench.html) is missing from this copy of the repo.")
+        return
+    components.html(BENCH.read_text(encoding="utf-8"), height=1500, scrolling=True)
+
+
 def main():
     st.title("🛡️ Network intrusion detector")
     st.caption("Classifies NSL-KDD connection records with models trained in this repo (classic ML vs deep learning).")
+    tab_detector, tab_bench = st.tabs(["Detector", "Bench"])
+    with tab_bench:
+        bench_tab()
+    with tab_detector:
+        detector_tab()
+
+
+def detector_tab():
     try:
         det = get_detector()
     except FileNotFoundError:

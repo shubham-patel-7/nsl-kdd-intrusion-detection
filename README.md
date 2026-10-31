@@ -114,6 +114,8 @@ streamlit run app/streamlit_app.py
 
 Upload a CSV (header optional; either the 41 NSL-KDD feature columns, or a raw 41-43 column NSL-KDD file) and choose the task, model and alert threshold. The app shows how many records are flagged, a table of the most suspicious ones, accuracy and a confusion table if a `label` column is present, and lets you download all predictions. `sample_data/sample_traffic.csv` has 500 `KDDTest+` records to try it with.
 
+The app has two tabs. **Detector** is the CSV tool described above. **Bench** embeds a standalone page (`app/bench.html`) where you pick one of 132 real `KDDTest+` records and see five classifiers label it side by side; the Decision Tree, SVM, MLP and LSTM run in your browser and the Random Forest results are precomputed. The Bench models and figures come from a separate lab report, so they are not the same models as the Detector tab or the results tables in this README.
+
 ## Quickstart
 
 ```bash
